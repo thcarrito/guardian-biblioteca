@@ -28,24 +28,37 @@ vector<int> BFS(vector<vector<int> > &lista, int nodoInicial){
 
 int main(){
 	vector< vector<int> > lista;
-	int t,n,m,b;
+	vector< pair<int,int> > entrada;
+	int t,n,m,temp;
+	string s;
 	cin >> t;
 	forn(k, t){
+		lista.clear();
+		entrada.clear();
 		cin >> n >> m;
+		vector<int> max(m,500);
 		forn(i,n){
-			vector<int> a;
+			cin >> s;
 			forn(j,m){
-				cin >> b;
-				 a.push_back(b);
+				temp = s[j] - '0';
+				if(temp == 1){
+					entrada.push_back(pair<int,int>(i,j));
+				}
 			}
-			lista.push_back(a);
+			lista.push_back(max);
 		}
-		for(int j = 0; j < n*m; j++){
-			vector<int> distancias = BFS(lista, j);
-			forn(i, (int)distancias.size()){
-				cout << distancias[i] << " ";
-				cout << endl;
-			}
+		
+		forn(i, (int)entrada.size())
+			lista[entrada[i].first][entrada[i].second] = 0;
+		for(unsigned i = 0; i < lista.size(); i++){
+			for(unsigned j = 0; j < lista[i].size(); j++)
+				cout << lista[i][j] << " ";
+			cout << endl;
+		}
+		
+		vector<int> distancias = BFS(lista, 1);
+		forn(i, (int)distancias.size()){
+			cout << distancias[i] << " ";
 		}
 		
 	}
