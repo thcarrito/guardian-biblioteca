@@ -15,10 +15,19 @@ typedef pair<int,int> ii;
 #define endl "\n"
 
 const int MAXN=100100;
+const int s = 1000000;
 
+ll rec(ll n, int b){
+	if(n == 1) return 0;
+	return (rec(n-1, b+1) + n-1 +(n-1)*b);
+}
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
+	int n;
+	cin >> n;
+	cout << n+rec(n,0) << endl;
     return 0;
 }
+

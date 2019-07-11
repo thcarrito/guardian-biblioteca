@@ -15,10 +15,23 @@ typedef pair<int,int> ii;
 #define endl "\n"
 
 const int MAXN=100100;
-
+const int s = 1000000;
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
+    char s[220];
+    cin >> s;
+    forn(i, (int)(220-2)){
+		if(s[i] == 'W' &&  s[i+1] == 'U' && s[i+2] == 'B')
+			s[i]=s[i+1]=s[i+2] = ' ';
+	}
+	char * v = strtok(s," ");
+	while(v != NULL){
+		cout << v << " ";
+		v = strtok(NULL, " ");
+	}
+	cout << endl;
     return 0;
 }
+

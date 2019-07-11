@@ -14,11 +14,38 @@ typedef pair<int,int> ii;
 #define dprint(v) cout << #v"=" << v << endl
 #define endl "\n"
 
-const int MAXN=100100;
-
-
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
+	int n;
+	cin >> n;
+	int k = (n-1)/2;
+	ll a[n];
+	forn(i, n)
+		cin >> a[i];
+	ll b[n], c[n], d[k];
+	forn(i, k)
+		d[i] = a[n-i-1] - a[i];
+	forn(i, k){
+		if(d[i]%2 != 0){
+			cout << "NO" << endl;
+			return 0;
+		}
+	}
+	forn(i, k){
+		b[n-i-1] = d[i]/2;
+		b[i] = -1 * b[n-i-1];	
+	}
+	b[k]=0;
+	forn(i, n)
+		c[i] = a[i] - b[i];
+	c[k] = a[k];		
+	cout << "YES" << endl;
+	forn(i, n)
+		cout << b[i] << " ";
+	cout << endl;	
+	forn(i, n)
+		cout << c[i] << " ";
+	cout << endl;
     return 0;
 }

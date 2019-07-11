@@ -20,5 +20,19 @@ const int MAXN=100100;
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
+    
+    ll n;
+    cin >> n;
+    
+    if(n%2!=0){
+		cout << 0 <<endl;
+		return 0;
+	}
+	
+	ll count = (n -1)/4;
+	
+	cout<<count<<endl;
+    
+    
     return 0;
 }

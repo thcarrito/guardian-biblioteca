@@ -15,10 +15,21 @@ typedef pair<int,int> ii;
 #define endl "\n"
 
 const int MAXN=100100;
-
+const int s = 1000000;
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
+    int a[s],n,b;
+    forn(i,s)
+		a[i] = i;
+	cin >> n;
+	forn(i,n){
+		cin >> b;
+		a[b] = -1;
+	}
+	int i = 0, j = 1;
+	
     return 0;
 }
+

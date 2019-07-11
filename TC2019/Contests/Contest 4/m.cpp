@@ -16,9 +16,31 @@ typedef pair<int,int> ii;
 
 const int MAXN=100100;
 
+ll dist_normal(ii a, ii b){
+	ll in = (b.fst - a.fst)*(b.fst - a.fst) + (b.snd - a.snd)*(b.snd - a.snd);
+	ll dou = (long)sqrt(in)*(long)sqrt(in);
+	if(dou == in)
+}
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
-    return 0;
+    vector< pair<ll,ll> > puntos;
+    vector<ll> dan;
+    vector<ll> man;
+    ll a,b,d,m;
+    int n;
+    cin >> n;
+    forn(i,n){
+		cin >> a >> b;
+		puntos.pb({a,b});
+	}
+	ll count=0;
+	forn(i, sz(puntos)){
+		forr(j,i,sz(puntos)){
+			puntos[i] - puntos[j];
+		}
+	}
+	cout << count << endl;
+	return 0;
 }

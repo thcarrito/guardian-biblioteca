@@ -5,7 +5,7 @@ using namespace std;
 #define sz(c) ((int)c.size())
 #define zero(v) memset(v, 0, sizeof(v))
 #define forall(it,v) for(auto it=v.begin();it!=v.end();++it)
-#define pb push_bac
+#define pb push_back
 #define fst first
 #define snd second
 typedef long long ll;
@@ -16,9 +16,21 @@ typedef pair<int,int> ii;
 
 const int MAXN=100100;
 
-
 int main() {
+
+	dprint(x);
+    freopen("input.in", "r", stdin);
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
+    
+    //sale con binary search (esta optimizado)
+    // la busqueda se hace a partir de la funcion que hicimos
+    
+    // n- a*k + k -1
+    
+    
+    
+    
+    
     return 0;
 }

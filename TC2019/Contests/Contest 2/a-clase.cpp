@@ -5,7 +5,7 @@ using namespace std;
 #define sz(c) ((int)c.size())
 #define zero(v) memset(v, 0, sizeof(v))
 #define forall(it,v) for(auto it=v.begin();it!=v.end();++it)
-#define pb push_bac
+#define pb push_back
 #define fst first
 #define snd second
 typedef long long ll;
@@ -15,10 +15,14 @@ typedef pair<int,int> ii;
 #define endl "\n"
 
 const int MAXN=100100;
-
+int n;
 
 int main() {
-    ios::sync_with_stdio(0);
+	ios::sync_with_stdio(0);
     cin.tie(nullptr);
+    while(cin >> n){
+		// (max%k) <= (min%k)
+    }
     return 0;
 }
+

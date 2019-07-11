@@ -20,5 +20,22 @@ const int MAXN=100100;
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
+    int n,k;
+    cin >> n >> k;
+    int a[n];
+    forn(i,n)
+		cin >> a[i];
+	int M = *(max_element(a,a+n));
+	int m = *(min_element(a,a+n));
+	if(M - m <= k){
+		cout << "YES" << endl;
+		forn(i,n){
+			forn(j,a[i])
+				cout << ((j+1)%k == 0 ? k : (j+1)%k) << " ";
+			cout << endl;
+		}
+	}	
+	else
+		cout << "NO" << endl;
     return 0;
 }

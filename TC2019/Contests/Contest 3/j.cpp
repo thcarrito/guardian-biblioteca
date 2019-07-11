@@ -14,11 +14,20 @@ typedef pair<int,int> ii;
 #define dprint(v) cout << #v"=" << v << endl
 #define endl "\n"
 
-const int MAXN=100100;
-
+double S[10000000];
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
+	int t;
+	cin >> t;
+	cout << fixed;
+	cout << setprecision(11);
+	forn(i,t){
+		int k;
+		cin >> k;
+		
+	}
+	cout << endl;
     return 0;
 }
