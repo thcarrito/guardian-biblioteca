@@ -1,45 +1,55 @@
 #include <bits/stdc++.h>
-
-#define forr(i,a,b) for(int i=a; i < b; i++)
-#define forn(i,n) forr(i,0,n)
-
 using namespace std;
-bool comp(bool *x, int n, int a, int k){
-	vector<int> intervalo;
-	int c = 0;
-	forn(i,n){
-		if(x[i]){
-			intervalo.push_back(c);
-			c = 0;
-		}else{
-			c++;
-		}
-	}
-	intervalo.push_back(c);
-	vector<int>::iterator it;
-	int posibles = 0;
-	for(it = intervalo.begin(); it != intervalo.end(); it++)
-		posibles += (*it >= a) ? 1 : 0; 
-	return  posibles >= k;
+#define dprint(v) cerr << #v"=" << v << endl //;)
+#define forr(i,a,b) for(int i=(a); i<(b); i++)
+#define forn(i,n) forr(i,0,n)
+#define dforn(i,n) for(int i=n-1; i>=0; i--)
+#define forall(it,v) for(auto it=v.begin();it!=v.end();++it)
+#define sz(c) ((int)c.size())
+#define zero(v) memset(v, 0, sizeof(v))
+#define pb push_back
+#define fst first
+#define snd second
+typedef long long ll;
+typedef pair<int,int> ii;
+#define endl "\n"
+#define MAXP 10000000	//no necesariamente primo
+
+int criba[MAXP+1];
+
+void crearcriba(){
+	int w[] = {4,2,4,2,4,6,2,6};
+	for(int p=25;p<=MAXP;p+=10) criba[p]=5;
+	for(int p=9;p<=MAXP;p+=6) criba[p]=3; 
+	for(int p=4;p<=MAXP;p+=2) criba[p]=2;
+	for(int p=7,cur=0;p*p<=MAXP;p+=w[cur++&7]) if (!criba[p]) 
+		for(int j=p*p;j<=MAXP;j+=(p<<1)) if(!criba[j]) criba[j]=p;
+} 
+
+vector<ll> primos;
+set<ll> primos2;
+
+void buscarprimos(){
+	crearcriba();
+	forr (i,2,MAXP+1) if (!criba[i]) primos.push_back(i);
 }
 
 int main(){
-	int n,m;
-	int k,a;
-	cin >> n >> k >> a >> m;
-	long long tablero[m];
-	forn(i,m)
-		cin >> tablero[i];
-	bool x[n] = {0};
-	forn(i,m){
-		x[tablero[i]-1] = 1;
-		if(!comp(x,n,a,k)){
-			cout << i+1 << endl;
-			return 0;
-		}
+	ios::sync_with_stdio(0);
+    cin.tie(nullptr);
+	buscarprimos();
+	vector<ll>::iterator it;
+	for(it = primos.begin(); it != primos.end(); ++it)
+		primos2.insert((*it)*(*it));
+	int n; 
+	cin >> n;
+	ll a;
+	forn(i,n){
+		cin >> a;
+		if(primos2.find(a) != primos2.end())
+			cout << "YES" << endl;
+		else
+			cout << "NO" << endl;
 	}
-		
-	
 	return 0;
 }
-

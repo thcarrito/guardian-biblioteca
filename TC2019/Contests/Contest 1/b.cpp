@@ -1,46 +1,68 @@
 #include <bits/stdc++.h>
 
-#define forr(i,a,b) for(int i = a; i < b; i++)
+#define forr(i,a,b) for(int i=a; i < b; i++)
 #define forn(i,n) forr(i,0,n)
-#define zero(v) memset(v, 0, sizeof(v))
-#define endl "\n"
-#define dprint(v) cout << #v"=" << v << endl
 
 using namespace std;
-
-void printBarrita(int k, int progress){
-	if(progress == 100){
-		cout << "********100%********" << endl;
-		return;
+bool comp(bool *x, int n, int a, int k){
+	vector<int> intervalo;
+	int c = 0;
+	forn(i,n){
+		if(x[i]){
+			intervalo.push_back(c);
+			c = 0;
+		}else{
+			c++;
+		}
 	}
-	int cant = 2;
-	string p = to_string(progress)+"%";
-	if(10 <= progress && progress < 100)
-		cant = 3;
-	char s[] = "--------------------";
-	forn(i,k)
-		s[i] = '*';
-	forr(i, 9, 9+cant)
-		s[i] = p[i-9];
-	cout << string(s) << endl;
-}
-
-int aprox(long long a, long long b, long long c){
-	long long r = (a*c)/b;
-	long long d = (a*c)% b;
-	if(2*d >= b)
-		return r+1;
-	return r;
+	intervalo.push_back(c);
+	vector<int>::iterator it;
+	int posibles = 0;
+	for(it = intervalo.begin(); it != intervalo.end(); it++)
+		posibles += (*it >= a) ? 1 : 0; 
+	return  posibles >= k;
 }
 
 int main(){
-	//freopen("output.o", "w", stdout);
-    ios::sync_with_stdio(0);
-	long long m, n;
-	while(cin >> m >> n, m != -1 && n != -1){
-		int k = aprox(m,n,20);
-		int d = aprox(m,n,100);
-		printBarrita(k, d);
+	long long t, m, rep,q;
+	string s, a;
+	s = "";
+	cin >> t;
+	forn(i,t){
+		cin >> m;
+		forn(j, m){
+			cin >> rep;
+			cin >> a;
+			forn(k, rep)
+				s += a;
+		}
+		cin >> q;
+		string query;
+		long long ia, ib;
+		forn(j,q){
+			cout << "Case " << i << ":" << endl;
+			cin >> query >> ia >> ib;
+			if(query == "F"){
+				forr(k, ia, ib)
+					s[k] = '1';
+			}
+			if(query == "E"){
+				forr(k, ia, ib)
+					s[k] = '0';
+			}
+			if(query == "I"){
+				forr(k, ia, ib)
+					s[k] = s[k] == '1' ? '0' : '1';
+			}
+			if(query == "s"){
+				long long count = 0;
+				forr(k, ia, ib)
+					count += s[k] == '1' ? 1 : 0;
+				cout << "Q" << j << ": " << count << endl; 
+			}
+		}
 	}
+	
 	return 0;
 }
+

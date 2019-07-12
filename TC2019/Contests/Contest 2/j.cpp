@@ -1,19 +1,33 @@
 #include <bits/stdc++.h>
-
-#define forr(i,a,b) for(int i=a; i < b; i++)
-#define forn(i,n) forr(i,0,n)
-
 using namespace std;
+#define forr(i,a,b) for(int i=(a); i<(b); i++)
+#define forn(i,n) forr(i,0,n)
+#define sz(c) ((int)c.size())
+#define zero(v) memset(v, 0, sizeof(v))
+#define forall(it,v) for(auto it=v.begin();it!=v.end();++it)
+#define pb push_bac
+#define fst first
+#define snd second
+typedef long long ll;
+typedef pair<int,int> ii;
+#define dforn(i,n) for(int i=n-1; i>=0; i--)
+#define dprint(v) cout << #v"=" << v << endl
+#define endl "\n"
 
-int main(){
-	long long n;
-	long long a[101];
-	long long b[101];
-	forn(i,101)
-		a[i] = i*i;
-	partial_sum(a,a+101,b);
-	while(cin >> n, n!=0){
-		cout << b[n] << endl;
+double S[10000000];
+
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(nullptr);
+	int t;
+	cin >> t;
+	cout << fixed;
+	cout << setprecision(11);
+	forn(i,t){
+		int k;
+		cin >> k;
+		
 	}
-	return 0;
+	cout << endl;
+    return 0;
 }

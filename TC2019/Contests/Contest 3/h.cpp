@@ -14,20 +14,45 @@ typedef pair<int,int> ii;
 #define dprint(v) cout << #v"=" << v << endl
 #define endl "\n"
 
-const int MAXN=100100;
-const int s = 1000000;
+const int MAXN=110;
 
-ll rec(ll n, int b){
-	if(n == 1) return 0;
-	return (rec(n-1, b+1) + n-1 +(n-1)*b);
-}
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
-	int n;
-	cin >> n;
-	cout << n+rec(n,0) << endl;
-    return 0;
+    int n,m,buf;
+    cin >> n;
+    int a[MAXN];
+    int b[MAXN];
+    zero(a);
+    zero(b);
+    forn(i,n){
+		cin >> buf;
+		a[buf]++;
+	}	
+	cin >> m;
+    forn(i,m){
+		cin >> buf;
+		b[buf]++;
+	}
+	int count = 0;
+	forr(i, 1,MAXN-1){
+		while(b[i]&&a[i-1]){
+			count++;
+			b[i]--;
+			a[i-1]--;
+		}
+		while(b[i]&&a[i]){
+			count++;
+			b[i]--;
+			a[i]--;
+		}
+		while(b[i]&&a[i+1]){
+			count++;
+			b[i]--;
+			a[i+1]--;
+		}
+	}
+	cout << count << endl;
+	return 0;
 }
-
