@@ -13,3 +13,9 @@ Setear configuracion global del git (una sola vez)
 -
 3- hacer el push
 - git push
+
+
+Para actualizar:
+-abris la terminal en tu repositorio
+-pones git pull
+- skerry
