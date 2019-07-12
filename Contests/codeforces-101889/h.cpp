@@ -19,7 +19,7 @@ int tienesiete(int u){
 			}
 	}
 	return 0;
-	}
+}
 
 
 // n cant personas, m persona elegida, j cant filas que pide
