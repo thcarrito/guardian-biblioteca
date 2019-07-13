@@ -16,9 +16,30 @@ typedef pair<int,int> ii;
 
 const int MAXN=100100;
 
+ll elev(ll a, ll n){
+	ll r=1;
+	forn(i,n)
+		r= r*a;
+	return r;
+}
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
+    int T, k=0;
+    cin>>T;
+    ll a, suma=0, b;
+    forn(i, T){
+		suma=0;
+		k=1;
+		cin>> a;
+		b = a/5;
+		while(b>0){
+			suma = suma + b;
+			k++;
+			b = a / elev(5,k);
+		}
+		cout<< suma<< endl;
+    }
     return 0;
 }
