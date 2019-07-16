@@ -5,7 +5,7 @@ using namespace std;
 #define sz(c) ((int)c.size())
 #define zero(v) memset(v, 0, sizeof(v))
 #define forall(it,v) for(auto it=v.begin();it!=v.end();++it)
-#define pb push_back
+#define pb push_bac
 #define fst first
 #define snd second
 typedef long long ll;

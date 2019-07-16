@@ -14,11 +14,30 @@ typedef pair<int,int> ii;
 #define dprint(v) cout << #v"=" << v << endl
 #define endl "\n"
 
-const int MAXN=100100;
+const ll MAXN = 10000000000000;
 
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
+    int n;
+    cin >> n;
+    vector<ll> a;
+    ll b;
+    forn(i,n){
+		cin >> b;
+		a.pb(b);
+	}
+	ll min = *min_element(a.begin(),a.end());
+	vector<ll>::iterator j = find(a.begin(),a.end(), min);
+	vector<ll>::iterator k;
+	vector<ll> dist;
+	while(j != a.end()){
+		k = find(j+1,a.end(),min);
+		if(k != a.end())
+			dist.pb((k-a.begin())-(j-a.begin()));
+		j = k;
+	}
+	cout << *(min_element(dist.begin(), dist.end())) << endl;
     return 0;
 }
