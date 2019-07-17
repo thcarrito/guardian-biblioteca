@@ -8,6 +8,7 @@ using namespace std;
 #define pb push_back
 #define fst first
 #define snd second
+typedef unsigned long long ull;
 typedef long long ll;
 typedef pair<int,int> ii;
 #define dforn(i,n) for(int i=n-1; i>=0; i--)

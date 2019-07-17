@@ -1,12 +1,3 @@
-#include <bits/stdc++.h>
-
-#define forr(i, a, b) for(int i = 0; i < b; i++)
-#define forn(i, n) forr(i, 0, n)
-#define zero(v) memset(v, 0, sizeof(v))
-typedef long long ll;
-typedef unsigned long long ull;
-using namespace std;
-
 ull mulmod(ull a, ull b, ull m){ // 0 <= a, b < m
    long double x; ull c; ll r;
    x = a; c = x * b / m;
@@ -37,8 +28,4 @@ bool rabin(ll n){ // true iff n is prime
 	int ar[]={2,3,5,7,11,13,17,19,23};
 	forn(i,9)if(!is_prime_prob(n,ar[i]))return false;
 	return true;
-}
-
-int main(){
-	return 0;
 }

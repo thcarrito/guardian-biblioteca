@@ -1,12 +1,5 @@
-#include<bits/stdc++.h>
-
-#define forr(i,a,b) for(int i=a; i<b; i++)
-#define forn(i,n) forr(i, 0, n)
-#define zero(v) memset(v, 0, sizeof(v))
-
-using namespace std;
-
 const int MAXN = 200;
+
 #define MOD 1000000007;
 
 //Luego de llamar a combinatoria(), comb queda: (MÓDULO 10^9 +7)
@@ -38,7 +31,6 @@ void outputTrianguloPascal(){
 }
 
 int main(){
-	ios::sync_with_stdio(0); cin.tie(0);
 	combinatoria();
 	outputTrianguloPascal();
 	return 0;

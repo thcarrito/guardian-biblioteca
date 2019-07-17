@@ -1,12 +1,3 @@
-#include <bits/stdc++.h>
-
-#define forr(i, a, b) for(int i = 0; i < b; i++)
-#define forn(i, n) forr(i, 0, n)
-#define zero(v) memset(v, 0, sizeof(v))
-typedef long long ll;
-typedef unsigned long long ull;
-using namespace std;
-
 ll gcd(ll a, ll b){return a?gcd(b%a,a):b;}
 
 ull mulmod(ull a, ull b, ull m){ // 0 <= a, b < m
@@ -34,9 +25,4 @@ void fact(ll n, map<ll,int>& f){ //O (lg n)^3
 	if(n==1)return;
 	if(rabin(n)){f[n]++;return;}
 	ll q=rho(n);fact(q,f);fact(n/q,f);
-}
-
-
-int main(){
-	return 0;
 }
