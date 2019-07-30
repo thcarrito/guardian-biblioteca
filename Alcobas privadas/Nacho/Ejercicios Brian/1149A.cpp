@@ -43,14 +43,43 @@ int main(){
 		cin >> a;
 		c1 += a == 1; c2 += a == 2;
 	}
-	s[0] = (c1 > 0) ? 1 : 2;
+	s[0] = (c2 > 0) ? 2 : 1;
+	if(c2 > 0) c2--;
 	int sum = s[0];
 	int j = 1;
-	int nextPrime = *lower_bound(primos.begin(),primos.end(), sum);
+	int nextPrime = 2;
 	while(j < n){
-		if(c2 == 0 && c1 == 0) break;
-	    while(c2 > 0 && (sum+2) <= nextPrime){c2--;sum+=2;s[j]=2;j++;continue;}
-		while(c1 > 0 && (sum+1) <= nextPrime){c1--;sum++;s[j]=1;j++;continue;}
+		if(sum >= nextPrime){
+			nextPrime = *upper_bound(primos.begin(),primos.end(), sum);
+		}
+		if((sum + 2) <= nextPrime && c2>0){
+			s[j] = 2;
+			sum += 2;
+			c2--;
+			j++;
+			continue;
+		}
+		if((sum + 1) <= nextPrime && c1>0){
+			s [j] = 1;
+			sum += 1;
+			c1--;
+			j++;
+			continue;
+		}
+		if(c1 == 0 && c2 > 0){
+			s [j] = 2;
+			sum += 2;
+			c2--;
+			j++;
+			continue;
+		}
+		if(c2 == 0 && c1 > 0){
+			s[j] = 1;
+			sum += 1;
+			c1--;
+			j++;
+			continue;
+		}
 	}
 	forn(i,n)
 		cout << s[i] << " ";
