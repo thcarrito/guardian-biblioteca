@@ -19,3 +19,7 @@ Para actualizar:
 -abris la terminal en tu repositorio
 -pones git pull
 - skerry
+
+/**************** eliminar archivos por extension: ********************/
+Windows: DEL /Q /S *.exe *.o
+Linux: find . -name "*.o" -type f -delete
