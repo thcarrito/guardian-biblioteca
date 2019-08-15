@@ -17,6 +17,9 @@ typedef pair<int,int> ii;
 
 const int MAXP=100100;
 
+int criba[MAXP+1];
+int cuenta[MAXP+1];
+
 void crearcriba(){
 	int w[] = {4,2,4,2,4,6,2,6};
 	for(int p=25;p<=MAXP;p+=10) criba[p]=5;
@@ -33,26 +36,34 @@ void buscarprimos(){
 	forr (i,2,MAXP+1) if (!criba[i]) primos.push_back(i);
 }
 
-map<ll,ll> fact2(ll n){ //O (lg n)
-	map<ll,ll> ret;
+void fact(ll n){ //O (lg n)
+	bool set[MAXP+1];
+	zero(set);
 	while (criba[n]){
-		ret[criba[n]]++;
+		if(!set[criba[n]]){
+			cuenta[criba[n]]++;
+			set[criba[n]] = 1;
+		}
 		n/=criba[n];
 	}
-	if(n>1) ret[n]++;
-	return ret;
+	if(n>1 && !set[n]) cuenta[n]++;
+	return;
 }
 
 int main() {
+	zero(cuenta);
+	buscarprimos();
 	ios::sync_with_stdio(0);
     cin.tie(nullptr);
 	int n;
 	cin >> n;
-	int a[n];
+	int a;
 	forn(i,n){
-		cin >> a[i];
-		map<ll, ll> fact = fact2(a[i]);
-		
+		cin >> a;
+		fact(a);
 	}
+	int max = *max_element(cuenta, cuenta+(MAXP+1));
+	max = max ? max : 1; 
+	cout << max << endl;
     return 0;
 }
